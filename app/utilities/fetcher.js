@@ -1,4 +1,4 @@
-import Alert from 'react-s-alert';
+import Alert from 'react-s-alert-v3';
 import 'whatwg-fetch';
 
 let Fetcher = function(path, method="GET", body, init=null){
