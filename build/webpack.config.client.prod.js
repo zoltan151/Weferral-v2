@@ -23,6 +23,10 @@ module.exports = {
         publicPath: BASE_PATH
     },
     resolve: {
+        fallback: {
+          "path": require.resolve("path-browserify"),
+          "stream": require.resolve("stream-browserify"),
+          },
         modules: [
             'node_modules',
             config.srcDir
@@ -39,7 +43,7 @@ module.exports = {
             template: config.srcHtmlLayout,
             inject: false
         }),
-        new webpack.HashedModuleIdsPlugin(),
+        new webpack.ids.HashedModuleIdsPlugin(),
         new ExtractCssChunks(),
         new OptimizeCssAssetsPlugin(),
         new webpack.DefinePlugin({
@@ -141,13 +145,16 @@ module.exports = {
         ]
     },
     devServer: {
-        hot: false,
-        contentBase: config.distDir,
         compress: true,
         historyApiFallback: {
             index: '/'
         },
+        allowedHosts: [ '*' ],
         host: '0.0.0.0',
-        port: 4100
+        port: 4100,
+        allowedHosts: 'all',
+        static: {
+          directory: config.serveDir,
+          },
     }
 }

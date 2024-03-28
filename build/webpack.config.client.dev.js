@@ -10,7 +10,7 @@ var BASE_PATH = process.env.BASE_PATH || '/';
 
 module.exports = {
     name: 'client',
-    devtool: 'cheap-eval-source-map',
+    devtool: 'eval-cheap-source-map',
     target: 'web',
     mode: 'development',
     entry: {
@@ -23,6 +23,10 @@ module.exports = {
         publicPath: BASE_PATH
     },
     resolve: {
+        fallback: {
+          "path": require.resolve("path-browserify"),
+          "stream": require.resolve("stream-browserify"),
+          },
         modules: [
             'node_modules',
             config.srcDir
@@ -44,7 +48,6 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify('development'),
             'process.env.BASE_PATH': JSON.stringify(BASE_PATH),
         }),
-        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new ExtractCssChunks(),
     ],
@@ -138,13 +141,15 @@ module.exports = {
         ]
     },
     devServer: {
-        hot: true,
-        contentBase: config.serveDir,
         compress: true,
         historyApiFallback: {
             index: BASE_PATH
         },
         host: '0.0.0.0',
-        port: 4100
+        port: 4100,
+        allowedHosts: 'all',
+        static: {
+          directory: config.serveDir,
+          },
     }
 }
