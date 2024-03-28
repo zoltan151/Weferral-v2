@@ -7,7 +7,10 @@
 
 ___
 <p align="center">
-<b>Weferral is a referral management & affiliate tracking software to grow your buiness</b>
+<b>
+    -- A hard fork of the seemingly abandoned and broken Weferral project originally found at https://github.com/WeferralHq/weferral. The idea is to bring this project back to life by bringing it up to date and continuing to make improvements. --
+    
+    Weferral is a referral management & affiliate tracking software to grow your buiness</b>
 <p align="center"></p>
 </p>
 
@@ -56,17 +59,17 @@ Get the app running locally in the following way:
 
 ```
 # Clone the Repo
-git clone https://github.com/WeferralHq/weferral.git
+git clone https://github.com/zoltan151/weferral-v2.git
 cd weferral
-npm install
-npm start
+npm install --force
+npm run start:prod
 ```
 ### Backend
 ```
 # Clone the weferral Server Repo
 git clone https://github.com/WeferralHq/weferral-api.git
 cd weferral-api
-npm install 
+npm install --force
 npm start
 
 then go to http://localhost:4100/setup to setup the database and admin user
