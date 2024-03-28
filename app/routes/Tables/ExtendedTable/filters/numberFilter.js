@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import uid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import { customFilter, Comparator, FILTER_TYPES } from 'react-bootstrap-table2-filter';
 
 import { CustomInput, Input } from './../../../../components';
