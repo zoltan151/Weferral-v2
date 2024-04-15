@@ -74,7 +74,7 @@
     "js-file-download": "^0.4.12",
     "lodash": "^4.17.11",
     "moment": "^2.29.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^3.3.2",
     "numeral": "^2.0.6",
     "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
